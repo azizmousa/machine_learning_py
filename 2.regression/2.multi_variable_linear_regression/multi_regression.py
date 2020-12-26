@@ -24,7 +24,7 @@ ct = ColumnTransformer(transformers=[("encoder",
 X = np.array(ct.fit_transform(X))
 
 # split dataset to train, test sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 # training the linear regression model
 # the LinearRegression class take care of
@@ -32,4 +32,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # the selecting the best features with the highest p-value
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
+
+# testing the trained model
+# predict the testset
+y_predict = regressor.predict(X_test)
+np.set_printoptions(precision=2)
+print(np.concatenate((y_predict.reshape(len(y_predict), 1), y_test.reshape(len(y_test), 1)), 1))
 
