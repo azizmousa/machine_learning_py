@@ -39,3 +39,6 @@ y_predict = regressor.predict(X_test)
 np.set_printoptions(precision=2)
 print(np.concatenate((y_predict.reshape(len(y_predict), 1), y_test.reshape(len(y_test), 1)), 1))
 
+print("single prediction: ", regressor.predict([[1, 0, 0, 160000, 130000, 300000]]))
+print("the coeffectiont:", regressor.coef_)
+print("the interception: ", regressor.intercept_)
