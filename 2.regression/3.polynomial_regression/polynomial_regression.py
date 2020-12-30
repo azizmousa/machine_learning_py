@@ -26,3 +26,5 @@ regressor = LinearRegression()
 regressor.fit(X_poly, y)
 y_pred = regressor.predict(X_poly)
 plot(X, y, X, y_pred, "predict Figure", "Level", "Salary", "blue")
+
+print(regressor.predict(poly.fit_transform([[4.5]])))
