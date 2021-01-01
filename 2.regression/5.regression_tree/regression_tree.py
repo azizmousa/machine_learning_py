@@ -14,3 +14,5 @@ plot(X, y, X, y, xlabel="Level", ylabel="Salary", title="Salary Level", plot_col
 reg_tree_model = tree.DecisionTreeRegressor()
 reg_tree_model.fit(X, y)
 tree.plot_tree(reg_tree_model)
+# predict single value 4.5 >>>>>>>> 80000
+print(reg_tree_model.predict([[4.5]]))
