@@ -22,3 +22,6 @@ prediction = svr_model.predict(X_scaled)
 prediction = y_ss.inverse_transform(prediction)
 
 plot(X, y, X, prediction, xlabel="Level", ylabel="salary", plot_color="blue", draw_plot=True, figure=1)
+
+# predict single value 4.5 >>>>> 131106.77303274
+print(y_ss.inverse_transform(svr_model.predict(X_ss.fit_transform([[4.5]]))))

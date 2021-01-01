@@ -27,4 +27,5 @@ regressor.fit(X_poly, y)
 y_pred = regressor.predict(X_poly)
 plot(X, y, X, y_pred, "predict Figure", "Level", "Salary", "blue")
 
+# predict single value of 4.5 >>>>>>>> 109582.14962124
 print(regressor.predict(poly.fit_transform([[4.5]])))
