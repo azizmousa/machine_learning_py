@@ -8,7 +8,7 @@ class RegressionModel:
     _y_validation = None
     _model = None
 
-    def __inti__(self, x_train=None, y_train=None, x_validation=None, y_validation=None, model=None):
+    def __init__(self, x_train=None, y_train=None, x_validation=None, y_validation=None, model=None):
         self._x_train = x_train
         self._y_train = y_train
         self._x_validation = x_validation
@@ -27,7 +27,7 @@ class RegressionModel:
 
     def set_model(self, model):
         self._model = model
-        
+
     # get the name of the model as string
     def to_string(self):
         pass
