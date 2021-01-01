@@ -1,5 +1,3 @@
-import numpy as np
-
 
 class RegressionModel:
     _x_train = None
