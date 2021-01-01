@@ -9,10 +9,6 @@ class LinearRegressionModel(RegressionModel):
             model = LinearRegression()
         super().__init__(x_train, y_train, x_validation, y_validation, model)
 
-    # create_model function resposible for initialize the Regressin model and fit it with the data
-    def create_model(self):
-        self._model.fit(self._x_train, self._y_train)
-
     # get the name of the model as string
     def to_string(self):
         return "Linear Regreassion Model"
