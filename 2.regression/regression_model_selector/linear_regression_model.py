@@ -13,9 +13,6 @@ class LinearRegressionModel(RegressionModel):
     def create_model(self):
         self._model.fit(self._x_train, self._y_train)
 
-    def evaluate_model(self):
-        pass
-
     # get the name of the model as string
     def to_string(self):
         return "Linear Regreassion Model"
