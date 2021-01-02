@@ -18,6 +18,20 @@ class SupportVectorRegression(RegressionModel):
             model = SVR(kernel="rbf")
         super().__init__(x_train, y_train, x_validation, y_validation, model)
 
+    # create_model function resposible for initialize the Regressin model and fit it with the data
+    def create_model(self):
+        print("Training Support Vector Regression Model ....")
+        x_train_tmp = self._x_train
+        y_train_tmp = self._y_train
+
+        if self._x_scaler is not None:
+            x_train_tmp = self._x_scaler.fit_transform(x_train_tmp)
+        if self._y_scaler is not None:
+            y_train_tmp = self._y_scaler.fit_transform(y_train_tmp)
+
+        self._model.fit(x_train_tmp, y_train_tmp)
+        print("Support Vector Regression Model Training is Finished.>")
+
     # get the name of the model as string
     def to_string(self):
         pass
