@@ -29,7 +29,7 @@ class SupportVectorRegression(RegressionModel):
         if self._y_scaler is not None:
             y_train_tmp = self._y_scaler.fit_transform(y_train_tmp)
 
-        self._model.fit(x_train_tmp, y_train_tmp)
+        self._model.fit(x_train_tmp, y_train_tmp.flatten())
         print("Support Vector Regression Model Training is Finished.>")
 
     # get the name of the model as string
