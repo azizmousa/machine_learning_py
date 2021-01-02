@@ -12,7 +12,9 @@ class RegressionTreeModel(RegressionModel):
 
     # create_model function resposible for initialize the Regressin model and fit it with the data
     def create_model(self):
-        pass
+        print("Training Regression Tree Model ....")
+        self._model.fit(self._x_train, self._y_train)
+        print("Regression Tree Model Training is Finished.>")
 
     # get the name of the model as string
     def to_string(self):
