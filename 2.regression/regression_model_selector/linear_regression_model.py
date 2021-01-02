@@ -12,7 +12,7 @@ class LinearRegressionModel(RegressionModel):
     def create_model(self):
         print("Training Linear Regression Model ....")
         self._model.fit(self._x_train, self._y_train)
-        print("Training Linear Regression Model is Finished.>")
+        print("Linear Regression Model Training is Finished.>")
 
     # get the name of the model as string
     def to_string(self):
