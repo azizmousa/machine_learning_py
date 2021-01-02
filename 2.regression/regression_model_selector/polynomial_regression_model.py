@@ -3,7 +3,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 
 
-class LinearRegressionModel(RegressionModel):
+class PolynomialRegressionModel(RegressionModel):
 
     _degree_range = []
     _degreed_model = {}
@@ -21,17 +21,17 @@ class LinearRegressionModel(RegressionModel):
 
     def create_model(self):
         if self._degree_range is []:
-            print(f"Training Polynomial Regression Model of Degree [1] ....")
-            x_poly_train = PolynomialFeatures(degree=1)
-            self._model.fit(x_poly_train, self._y_train)
+            print("Training Polynomial Regression Model of Degree [1] ....")
+            self._model.fit(self._x_train, self._y_train)
         else:
             for degree in self._degree_range:
                 print(f"Training Polynomial Regression Model of Degree [{degree}] ....")
-                x_poly_train = PolynomialFeatures(degree=degree)
+                poly = PolynomialFeatures(degree=degree)
+                x_poly_train = poly.fit_transform(self._x_train)
                 model = LinearRegression()
                 model.fit(x_poly_train, self._y_train)
-                self._degreed_model.append({degree: model})
-                print(f"Training Polynomial Regression Model of Degree [{degree}] is Finished >>")
+                self._degreed_model[degree] = model
+                print(f"Polynomial Regression Model of Degree [{degree}] Training is Finished >>")
 
     # get the name of the model as string
     def to_string(self):
