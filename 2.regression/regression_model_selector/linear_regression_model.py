@@ -9,6 +9,11 @@ class LinearRegressionModel(RegressionModel):
             model = LinearRegression()
         super().__init__(x_train, y_train, x_validation, y_validation, model)
 
+    def create_model(self):
+        print("Training Linear Regression Model ....")
+        self._model.fit(self._x_train, self._y_train)
+        print("Training Linear Regression Model is Finished.>")
+
     # get the name of the model as string
     def to_string(self):
         return "Linear Regreassion Model"
