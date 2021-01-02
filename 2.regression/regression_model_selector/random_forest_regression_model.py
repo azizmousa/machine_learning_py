@@ -19,4 +19,4 @@ class RandomForestRegressionModel(RegressionModel):
 
     # get the name of the model as string
     def to_string(self):
-        pass
+        return type(self._model)

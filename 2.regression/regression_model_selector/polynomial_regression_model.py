@@ -35,4 +35,4 @@ class PolynomialRegressionModel(RegressionModel):
 
     # get the name of the model as string
     def to_string(self):
-        return "Polynomial Regreassion Model"
+        return type(self._model)
