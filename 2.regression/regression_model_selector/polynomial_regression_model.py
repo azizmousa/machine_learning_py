@@ -17,8 +17,7 @@ class PolynomialRegressionModel(RegressionModel):
             model = LinearRegression()
         super().__init__(x_train, y_train, x_validation, y_validation, model)
 
-        # create_model function resposible for initialize the Regressin model and fit it with the data
-
+    # create_model function resposible for initialize the Regressin model and fit it with the data
     def create_model(self):
         if self._degree_range is []:
             print("Training Polynomial Regression Model of Degree [1] ....")
