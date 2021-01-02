@@ -15,7 +15,7 @@ class RegressionModel:
 
     # create_model function resposible for initialize the Regressin model and fit it with the data
     def create_model(self):
-        pass
+        self._model.fit(self._x_train, self._y_train)
 
     def evaluate_model(self):
         pass
