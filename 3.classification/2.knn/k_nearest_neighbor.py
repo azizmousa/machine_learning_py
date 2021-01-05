@@ -4,6 +4,7 @@ from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import confusion_matrix, accuracy_score, plot_confusion_matrix
 
 dataset = pd.read_csv("data.csv")
 X = dataset.iloc[:, :-1].values
@@ -20,3 +21,12 @@ classifier.fit(x_train, y_tarin.flatten())
 print(classifier.predict(x_scaler.fit_transform([[30, 87000]])))
 
 y_hat = classifier.predict(x_test)
+
+tn, fn, fp, tp = confusion_matrix(y_test, y_hat).ravel()
+print(f"tn: {tn}, fn: {fn}, fp: {fp}, tp: {tp}")
+
+accuracy = accuracy_score(y_test, y_hat)
+print("accuracy = ", accuracy)
+
+plot_confusion_matrix(classifier, x_test, y_test)
+plt.show()
