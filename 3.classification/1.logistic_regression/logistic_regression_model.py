@@ -17,3 +17,4 @@ x_train, x_test, y_tarin, y_test = train_test_split(X, y, test_size=0.2, random_
 
 classifier = LogisticRegression(random_state=0)
 classifier.fit(x_train, y_tarin.flatten())
+print(classifier.predict(x_scaler.fit_transform([[30, 87000]])))
