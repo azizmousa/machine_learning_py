@@ -14,7 +14,7 @@ y = y.reshape(-1, 1)
 x_scaler = StandardScaler()
 X = x_scaler.fit_transform(X)
 
-x_train, x_test, y_tarin, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+x_train, x_test, y_tarin, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 classifier = LogisticRegression(random_state=0)
 classifier.fit(x_train, y_tarin.flatten())
