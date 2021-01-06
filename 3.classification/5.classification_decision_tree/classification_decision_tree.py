@@ -3,7 +3,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-
+from sklearn.tree import DecisionTreeClassifier
 
 dataset = pd.read_csv("data.csv")
 X = dataset.iloc[:, :-1].values
@@ -15,4 +15,7 @@ X = x_scaler.fit_transform(X)
 
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
+classifier = DecisionTreeClassifier()
+classifier.fit(x_train, y_train)
 
+print(classifier.predict(x_scaler.fit_transform([[30, 87000]])))
