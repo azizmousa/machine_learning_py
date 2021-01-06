@@ -23,10 +23,24 @@ print(classifier.predict(x_scaler.fit_transform([[30, 87000]])))
 y_hat = classifier.predict(x_test)
 
 tn, fn, fp, tp = confusion_matrix(y_test, y_hat).ravel()
-print(f"tn: {tn}, fn: {fn}, fp: {fp}, tp: {tp}")
+print(f"Linear confusion: tn: {tn}, fn: {fn}, fp: {fp}, tp: {tp}")
 
 accuracy = accuracy_score(y_test, y_hat)
-print("accuracy = ", accuracy)
+print("linear accuracy = ", accuracy)
 
 plot_confusion_matrix(classifier, x_test, y_test)
+plt.show()
+
+non_linear_classifier = SVC(kernel='rbf', random_state=0)
+non_linear_classifier.fit(x_train, y_tarin.flatten())
+
+non_linear_y_hat = non_linear_classifier.predict(x_test)
+
+nl_tn, nl_fn, nl_fp, nl_tp = confusion_matrix(y_test, non_linear_y_hat).ravel()
+print(f"non linear confusion:  tn: {nl_tn}, fn: {nl_fn}, fp: {nl_fp}, tp: {nl_tp}")
+
+accuracy = accuracy_score(y_test, non_linear_y_hat)
+print("non linear accuracy = ", accuracy)
+
+plot_confusion_matrix(non_linear_classifier, x_test, y_test)
 plt.show()
