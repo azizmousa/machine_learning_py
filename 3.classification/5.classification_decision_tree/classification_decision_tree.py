@@ -13,12 +13,12 @@ y = y.reshape(-1, 1)
 x_scaler = StandardScaler()
 X = x_scaler.fit_transform(X)
 
-x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
 
-classifier = DecisionTreeClassifier(criterion='entropy')
+classifier = DecisionTreeClassifier(criterion='entropy', random_state=0)
 classifier.fit(x_train, y_train)
 
-print(classifier.predict(x_scaler.fit_transform([[30, 87000]])))
+print(classifier.predict(x_scaler.transform([[30, 87000]])))
 
 y_hat = classifier.predict(x_test)
 
