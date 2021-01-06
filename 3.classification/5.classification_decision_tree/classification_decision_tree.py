@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
-
+from sklearn.metrics import confusion_matrix, plot_confusion_matrix, accuracy_score
 dataset = pd.read_csv("data.csv")
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
@@ -19,3 +19,13 @@ classifier = DecisionTreeClassifier()
 classifier.fit(x_train, y_train)
 
 print(classifier.predict(x_scaler.fit_transform([[30, 87000]])))
+
+y_hat = classifier.predict(x_test)
+
+tn, fn, fp, tp = confusion_matrix(y_test, y_hat).ravel()
+print(f"tn: {tn}, fn: {fn}, fp: {fp}, tp: {tp}")
+plot_confusion_matrix(classifier, x_test, y_test)
+plt.show()
+
+print("accuracy: ", accuracy_score(y_test, y_hat))
+
