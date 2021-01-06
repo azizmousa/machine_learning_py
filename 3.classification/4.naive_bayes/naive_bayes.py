@@ -22,3 +22,9 @@ print(classifier.predict([[30, 87000]]))
 
 y_hat = classifier.predict(x_test)
 
+tn, fn, fp, tp = confusion_matrix(y_test, y_hat).ravel()
+print(f"tn: {tn}, fn: {fn}, fp: {fp}, tp: {tp}")
+plot_confusion_matrix(classifier, y_test, y_hat)
+plt.show()
+
+print("accuracy: ", accuracy_score(y_test, y_hat))
