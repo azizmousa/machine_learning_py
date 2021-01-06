@@ -18,7 +18,7 @@ x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 classifier = GaussianNB()
 classifier.fit(x_train, y_train.flatten())
-print(classifier.predict([[30, 87000]]))
+print(classifier.predict(x_scaler.fit_transform([[30, 87000]])))
 
 y_hat = classifier.predict(x_test)
 
