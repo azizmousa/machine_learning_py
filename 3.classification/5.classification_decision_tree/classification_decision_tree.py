@@ -15,7 +15,7 @@ X = x_scaler.fit_transform(X)
 
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
-classifier = DecisionTreeClassifier()
+classifier = DecisionTreeClassifier(criterion='entropy')
 classifier.fit(x_train, y_train)
 
 print(classifier.predict(x_scaler.fit_transform([[30, 87000]])))
