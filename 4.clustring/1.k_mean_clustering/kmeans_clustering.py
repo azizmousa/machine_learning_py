@@ -23,4 +23,5 @@ plt.show()
 # from the elbow graph the best k clusters is 5
 
 kmeans = KMeans(n_clusters=5, init='k-means++')
-kmeans.fit(X)
+y_kmean = kmeans.fit_predict(X)
+print(y_kmean)
